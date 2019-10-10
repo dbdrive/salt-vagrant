@@ -1,5 +1,12 @@
 {% from "vagrant/map.jinja" import vagrant with context %}
 
+install_virtualbox_as_provider:
+  pkg.installed:
+    - pkgs: [virtualbox]
+  service.running:
+    - name: virtualbox
+    - enable: true
+
 vagrant:
   pkg.installed:
     - sources:
